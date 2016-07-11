@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Friday, July 8, 2016
-@authors: brett barbaro, ludovic autin
+@authors: brett barbaro, ludovic autin, Jared Truong
 """
 # import data from csv file - BRETT
 # fill in missing data
