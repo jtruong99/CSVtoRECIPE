@@ -1,8 +1,46 @@
 # -*- coding: utf-8 -*-
 """
 Created on Friday, July 8, 2016
-@authors: brett barbaro, ludovic autin
+@author: brettbarbaro
 """
+
+import csv
+import math
+import numpy
+import json
+
+# import data from csv file - Brett
+f = "/Users/Brett/FELLOWSHIP/Syn1.0_proteome_spreadsheet_cut.csv"
+all_data = []
+cell_radius = 0.15  # um
+cell_density = 1.07  # g/cc
+protein_content_fraction = 0.163  # 155.0/950.0#0.163#by weight
+cell_volume = 4.0 * math.pi * (math.pow(cell_radius, 3.0) / 3.0)  # cu um
+cell_mass = cell_volume * cell_density * math.pow(10, -12)  # g
+protein_mass = cell_mass * protein_content_fraction  # g
+total_I = [0, 0, 0, 0]
+total_IBAQ = [0, 0, 0, 0]
+total_LFQ = [0, 0, 0, 0]
+col_id = [42, 47, 51]
+total = [total_I, total_IBAQ, total_LFQ]
+oneMol = [total_I, total_IBAQ, total_LFQ]
+with open(f, 'r') as csvfile:
+    spamreader = csv.reader(csvfile)
+    for row in spamreader:
+        all_data.append(row)
+        if len(all_data) == 1: continue
+        for i in range(3):
+            for j in range(4):
+                intensity = row[col_id[i] + j]
+                if intensity == "NaN":
+                    intensity = 0
+                else:
+                    intensity = intensity.replace(",", ".")
+                total[i][j] += float(intensity)
+nbMol = []
+avgMols = []
+mWeight = []
+names = []
 
 # fill in missing data
 #   Ingredients from proteomics:
@@ -32,3 +70,6 @@ Created on Friday, July 8, 2016
 #     http://www.ncbi.nlm.nih.gov/protein/296456015?report=fasta&log$=seqview&format=text#
 
 #   export results as json
+
+print"done"
+
