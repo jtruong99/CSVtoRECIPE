@@ -31,4 +31,4 @@ Created on Friday, July 8, 2016
 #     For ncbi access the fasta sequence can be done with
 #     http://www.ncbi.nlm.nih.gov/protein/296456015?report=fasta&log$=seqview&format=text#
 
-#   export results as json
+# export results as json
