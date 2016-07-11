@@ -3,7 +3,7 @@
 Created on Friday, July 8, 2016
 @authors: brett barbaro, ludovic autin
 """
-
+# import data from csv file - BRETT
 # fill in missing data
 #   Ingredients from proteomics:
 #     Needs name (the name in the data you have)
